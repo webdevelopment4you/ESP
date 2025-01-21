@@ -1,0 +1,38 @@
+#heading
+{
+color:green;
+}
+
+#myResults
+{
+    display:none;
+    margin-left:17px;
+}
+
+#displaySuccess
+{
+    display:none;
+}
+
+#displayDanger
+{
+    display:none;
+}
+#heading4
+{
+    text-align: center;
+    background-color: rgba(212, 107, 214, 0.4);
+    border-radius: 6px;
+}
+#formResults
+{
+background-color: rgba(128, 128, 128, 0.324);
+border-radius: 6px;
+}
+#resultHeading{
+    text-align: center;
+}
+#fillDetails{
+    text-align: center;
+    display:inherit;
+}
