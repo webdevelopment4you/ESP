@@ -18,6 +18,15 @@ color:green;
 {
     display:none;
 }
+#displayCoronasuccess
+{
+    display:none;
+}
+
+#displayCoronadanger
+{
+    display:none;
+}
 #heading4
 {
     text-align: center;
@@ -35,4 +44,14 @@ border-radius: 6px;
 #fillDetails{
     text-align: center;
     display:inherit;
+}
+
+#displayCorona{
+    display:none;
+    margin-left:17px;
+}
+
+#myFormforcorona{
+    display:none;
+    margin-left:17px;
 }
