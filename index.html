@@ -78,12 +78,32 @@
         <div id="formResults">
             <p id="resultHeading">Results</p>
             <p id="fillDetails">Fill the above details and click on Submit to get results</p>
-            <p id="myResults">
-              <b>Total Collecting Area per Boiler(SQM):</b> <span id="TCArea"></span><br>
-              <b>Minimum number of TR sets required per boiler:</b> <span id="minTRSets"></span><br>
-              <b>Numbers of T/R set provided per Boiler:</b> <span id="numberofTRSetsperboiler"></span><br>
-              <b>The collection area provided per TR set (SQM):</b> <span id="cAreaperTR"></span><br>
-              <b>Recommanded secondary mean DC Current (mA) > </b> <span id="meanDCCurrent"></span><br>
+            <p>
+              <table id="myResults">
+                <tr>
+                  <th>Considering Peak Bus Voltage of 95kV:</th>
+                </tr>
+                <tr>
+                  <td>Total Collecting Area per Boiler(SQM):</td>
+                  <td><span id="TCArea"></span></td>
+                </tr>
+                <tr>
+                  <td>Minimum number of TR sets required per boiler:</td>
+                  <td><span id="minTRSets"></span></td>
+                </tr>
+                <tr>
+                  <td>Numbers of T/R set provided per Boiler:</td>
+                  <td><span id="numberofTRSetsperboiler"></span></td>
+                </tr>
+                <tr>
+                  <td>The collection area provided per TR set (SQM):</td>
+                  <td><span id="cAreaperTR"></span></td>
+                </tr>
+                <tr>
+                  <td>Recommanded secondary mean DC Current (mA) ></td>
+                  <td><span id="meanDCCurrent"></span></td>
+                </tr>
+              </table><br>
                 <form id="myFormforcorona">
                 <label for="meanDCCurrentvalue">Enter Secondary mean DC Current value here:</label><br>
                 <input type="number" id="meanDCCurrentvalue" name="meanDCCurrentvalue"><br><br>

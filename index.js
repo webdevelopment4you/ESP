@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', e => {
         } else {
             fillDetails.style.display='inherit';
         }
-        document.getElementById('TCArea').innerHTML = TCArea;
+        document.getElementById('TCArea').innerHTML = TCArea.toFixed(2);
         document.getElementById('minTRSets').innerHTML = minTRSets;
         document.getElementById('numberofTRSetsperboiler').innerHTML = numberofTRSetsperboiler;
-        document.getElementById('cAreaperTR').innerHTML = cAreaperTR;
-        document.getElementById('meanDCCurrent').innerHTML = meanDCCurrent;
+        document.getElementById('cAreaperTR').innerHTML = cAreaperTR.toFixed(2);
+        document.getElementById('meanDCCurrent').innerHTML = meanDCCurrent.toFixed(2);
         
         resultDiv.style.display = 'inherit';
         myFormforcorona.style.display = 'inherit';
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', e => {
             let meanDCCurrentvalue = formData.get('meanDCCurrentvalue');
             let coronaPower = meanDCCurrentvalue*avgDCBusvoltage/cAreaperTR;
             console.log(coronaPower);
-            document.getElementById('coronaPower').innerHTML = coronaPower;
+            document.getElementById('coronaPower').innerHTML = coronaPower.toFixed(2);
             if (coronaPower<minCorona) {
                 if (suitableCorona.style.display='none') {
                     notsuitableCorona.style.display = 'inherit';
