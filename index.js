@@ -13,11 +13,13 @@ document.addEventListener('DOMContentLoaded', e => {
     const submit1 = document.getElementById('submit1');
     const submit2 = document.getElementById('submit2');
     let displayCorona = document.getElementById('displayCorona')
+    let displayCoronaAlert = document.getElementById('displayCoronaAlert')
 
     submit1.addEventListener('click', e => {
         e.preventDefault();
         formResults="";
         displayCorona.style.display = 'none';
+        displayCoronaAlert.style.display = 'none'
         console.log ('Corona power is currently hidden');
         console.log(formResults);
         let formData = new FormData(formElement); // build form data
@@ -103,3 +105,4 @@ document.addEventListener('DOMContentLoaded', e => {
 
 
 });
+
