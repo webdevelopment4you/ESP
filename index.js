@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', e => {
         myFormforcorona.style.display = 'inherit';
         submit2.addEventListener('click', e => {
             e.preventDefault();
-             displayCoronaAlert.style.display = 'inherit'
             let formData = new FormData(formElementforcorona);
             let meanDCCurrentvalue = formData.get('meanDCCurrentvalue');
             let coronaPower = meanDCCurrentvalue*avgDCBusvoltage/cAreaperTR;
@@ -106,6 +105,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
 
 });
+
 
 
 
