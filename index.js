@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', e => {
     submit1.addEventListener('click', e => {
         e.preventDefault();
         formResults="";
+        displayCorona.style.display = 'none';
+        console.log ('Corona power is currently hidden');
         console.log(formResults);
         let formData = new FormData(formElement); // build form data
         let cArea = formData.get('cArea'); // get form field values
@@ -98,5 +100,6 @@ document.addEventListener('DOMContentLoaded', e => {
             displayCorona.style.display = 'inherit';
         });
     });
+
 
 });
