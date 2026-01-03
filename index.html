@@ -7,7 +7,9 @@
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <title>ESP</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
     <link rel="stylesheet" href="style.css">  
+    <script src="https://unpkg.com/pdf-lib"></script>
 </head>
   </head>
   <body>
@@ -52,7 +54,7 @@
             <input type="number" id="chambers" name="chambers" value="6"><br>
 
             <label for="lanes">Number of Lanes per Chamber</label><br>
-            <input type="number" id="lanes" name="lanes" value="47"> <br>
+            <input type="number" id="lanes" name="lanes" value="43"> <br>
 
             <label for="lSpacing">Lane Spacing in mm.</label><br>
             <input type="number" id="lSpacing" name="lSpacing" value="400"> <br>
@@ -61,7 +63,7 @@
             <input type="number" id="fields" name="fields" value="9"> <br> 
 
             <label for="lFields">Length of Fields in mtr.</label><br>
-            <input type="number" id="lFields" name="lFields" step="0.0001" value="4.1529"> <br>
+            <input type="number" id="lFields" name="lFields" step="0.0001" value="4.693"> <br>
 
             <label for="hFields">Height of Fields in mtr.</label><br>
             <input type="number" id="hFields" name="hFields" step="0.0001" value="15.24"><br>
@@ -120,17 +122,26 @@
                 Collection Area provided per TR set is not Acceptable
               </div>
               <div class="alert alert-success" role="alert" id="displayCoronasuccess">
-                Installed Corona Power is more than the minimum requirement, Hence value of mean secondary current is acceptable
+                Installed Corona Power is more than the minimum requirement, Hence value of mean secondary current is acceptable <br>
+                <div id="minCoronaCurrent">
+                  <p> With <span id="coronaPowerMention"></span> Watt/m<sup>2</sup> Corona Power per effective collection Area and <span id="meanDCCurrentvalueMention"></span>mA secondary mean DC current, we
+                    are achieving <span id='avgCoronaCurrentPerSqmm'></span> mA/m2 which is more than required value 0.269 mA/m2. Hence, above calculation is
+                    justified.</p>
+                </div>
               </div>
               <div class="alert alert-danger" role="alert" id="displayCoronadanger">
                 Installed Corona Power is less than the minimum requirement, Hence value of mean secondary current is not accceptable. Please increase the value.
               </div>
         </div>
 
+        <form id="dataForm">
+            <input type="file" id="pdfTemplate" accept="application/pdf">
+          <button type="button" id='btn' class='btn btn-success'>Download PDF</button>
+
+          <!-- <button type="button" onclick="generatePDF()">Download PDF</button> -->
+        </form>
+
       </div>
       <script src="index.js"></script>
   </body>
-
 </html>
-
-
