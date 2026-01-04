@@ -15,7 +15,9 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">ESP Master</a>
+        <div class="navbar-brand">
+					<img src="logo.png" alt="Brand Logo" class="img-responsive logo" width="100" height="auto">
+				</div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -74,7 +76,7 @@
             <label for="Trsets">Number of Bus section (T/R Set)  per Field</label><br>
             <input type="number" id="Trsets" name="Trsets" value="2"> <br><br>
 
-            <input type="submit" value="Submit" class="btn btn-success" id="submit1">
+            <input type="submit" value="Submit" class="btn btn-outline-success" id="submit1">
           </form><br>
 
         <div id="formResults">
@@ -109,7 +111,7 @@
                 <form id="myFormforcorona">
                 <label for="meanDCCurrentvalue">Enter Secondary mean DC Current value here:</label><br>
                 <input type="number" id="meanDCCurrentvalue" name="meanDCCurrentvalue"><br><br>
-                <input type="submit" value="Calculate Corona Power" class="btn btn-success" id="submit2">
+                <input type="submit" value="Calculate Corona Power" class="btn btn-outline-success" id="submit2">
                 </form>
            </p>
            <p id="displayCorona">
