@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', e => {
     let displayCorona = document.getElementById('displayCorona');
     let dataForm =  document.getElementById("dataForm");
     minCoronaCurrent = document.getElementById('minCoronaCurrent');
+
     minCoronaCurrent.style.display='none';
     dataForm.style.display = 'none'
     
@@ -36,21 +37,29 @@ document.addEventListener('DOMContentLoaded', e => {
         let hFields = formData.get('hFields');
         let Trsets = formData.get('Trsets');
         let minCorona = formData.get('minCorona');
+        let mechDocNo = formData.get('mechDocNo');
+        let mechDocName = formData.get('mechDocName');
+        let cAreaTechSpecRef = formData.get('cAreaTechSpecRef');
+        let cAreaClause = formData.get('cAreaClause');
+        let chambersTechSpecRef = formData.get('chambersTechSpecRef');
+        let chambersClause = formData.get('chambersClause');
+        let minCoronaTechSpecRef = formData.get('minCoronaTechSpecRef');
+        let minCoronaClause = formData.get('minCoronaClause');
         
         let TCArea = 2* parseFloat(chambers) * parseFloat(lanes)* parseFloat(fields) * parseFloat(lFields) * parseFloat(hFields);
-        console.log('TCArea', TCArea);
+        // console.log('TCArea', TCArea);
         
         let minTRSets = Math.ceil(TCArea/cArea);
-        console.log('minimum TR Sets Required', minTRSets);
+        // console.log('minimum TR Sets Required', minTRSets);
         
         let numberofTRSetsperboiler = chambers*fields*Trsets;
-        console.log('number od TR Sets per Boiler', numberofTRSetsperboiler);
+        // console.log('number of TR Sets per Boiler', numberofTRSetsperboiler);
         
         let cAreaperTR = TCArea/numberofTRSetsperboiler;
-        console.log('collection area per TR Sets', cAreaperTR);
+        // console.log('collection area per TR Sets', cAreaperTR);
         
         let meanDCCurrent = minCorona*cAreaperTR/avgDCBusvoltage;
-        console.log('collection area per TR Sets', cAreaperTR);
+        // console.log('collection area per TR Sets', cAreaperTR);
         
         if (cAreaperTR<cArea) {
             if (notsuitableDiv.style.display='none') {
@@ -88,7 +97,7 @@ document.addEventListener('DOMContentLoaded', e => {
             let meanDCCurrentvalue = formData.get('meanDCCurrentvalue');
             let coronaPower = meanDCCurrentvalue*avgDCBusvoltage/cAreaperTR;
             dataForm.style.display = 'inherit'
-            console.log(coronaPower);
+            // console.log(coronaPower);
             let avgCoronaCurrentPerSqmm = coronaPower/60.5
             document.getElementById('coronaPower').innerHTML = coronaPower.toFixed(2);
             document.getElementById('coronaPowerMention').innerHTML = coronaPower.toFixed(2);
@@ -114,9 +123,9 @@ document.addEventListener('DOMContentLoaded', e => {
 
             document.getElementById('btn').addEventListener('click', async function ()
             {       
-                // const existingPdfBytes = await fetch('template.pdf').then(res => res.arrayBuffer());
-                const file = document.getElementById('pdfTemplate').files[0];
-                const existingPdfBytes = await file.arrayBuffer();
+                const existingPdfBytes = await fetch('template.pdf').then(res => res.arrayBuffer());
+                // const file = document.getElementById('pdfTemplate').files[0];
+                // const existingPdfBytes = await file.arrayBuffer();
                 
                 const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
                 const pages = pdfDoc.getPages();
@@ -143,6 +152,70 @@ document.addEventListener('DOMContentLoaded', e => {
                 form.getTextField('avgCoronaCurrentPerSqmm').setText(avgCoronaCurrentPerSqmm.toFixed(3).toString());
                 form.getTextField('numberofTRSets').setText(numberofTRSetsperboiler.toString());
 
+                if(mechDocNo==""){
+                    form.getTextField('mechDocNo').setText("");
+                }
+                else{
+                    form.getTextField('mechDocNo').setText(": As per ESP Sizing Calculation (" +mechDocNo+ ")");
+                }
+
+                if(mechDocName==""){
+                    form.getTextField('mechDocName').setText("");
+                }
+                else{
+                    if(mechDocNo==""){
+                        form.getTextField('mechDocName').setText("(Reference Doc.:" +mechDocName+ ")");
+                    }
+                    else{
+                        form.getTextField('mechDocName').setText("(Reference Doc. No: " +mechDocNo+ ": " +mechDocName+ ")");                        
+                    }
+                }
+                 if(cAreaTechSpecRef == ""){
+                    form.getTextField('cAreaTechSpecRef').setText("OEM Standard and Executed Projects");
+                    console.log("I am empty");
+                 }
+                 else{
+                     form.getTextField('cAreaTechSpecRef').setText(cAreaTechSpecRef.toString());
+                 }
+                 if(cAreaClause == ""){
+                    form.getTextField('cAreaClause').setText("NA");
+                 }
+                 else{
+                     form.getTextField('cAreaClause').setText(cAreaClause.toString());
+                 }
+
+                 if(chambersTechSpecRef == ""){
+                    form.getTextField('chambersTechSpecRef').setText("Plot Plan");
+                 }
+                 else{
+                     form.getTextField('chambersTechSpecRef').setText(chambersTechSpecRef.toString());
+                 }
+                 if(chambersClause == ""){
+                    form.getTextField('chambersClause').setText("NA");
+                 }
+                 else{
+                     form.getTextField('chambersClause').setText(chambersClause.toString());
+                 }
+
+                 if(minCoronaTechSpecRef == ""){
+                    form.getTextField('minCoronaTechSpecRef').setText("OEM Standard and Executed Projects");
+                 }
+                 else{
+                     form.getTextField('minCoronaTechSpecRef').setText(minCoronaTechSpecRef.toString());
+                 }
+                 if(minCoronaClause == ""){
+                    form.getTextField('minCoronaClause').setText("NA");
+                 }
+                 else{
+                     form.getTextField('minCoronaClause').setText(minCoronaClause.toString());
+                 }
+
+                form.getTextField('firstField').setText((7.6*lSpacing*(0.5/25.4)).toFixed(2).toString());
+                form.getTextField('secondField').setText((7.4*lSpacing*(0.5/25.4)).toFixed(2).toString());
+                form.getTextField('thirdField').setText((7.3*lSpacing*(0.5/25.4)).toFixed(2).toString());
+                form.getTextField('fourthField').setText((7.2*lSpacing*(0.5/25.4)).toFixed(2).toString());
+                form.getTextField('fifthField').setText((7.1*lSpacing*(0.5/25.4)).toFixed(2).toString());
+                form.getTextField('sixthField').setText((7*lSpacing*(0.5/25.4)).toFixed(2).toString());
                 
                 const pdfBytes = await pdfDoc.save();
                 
@@ -157,7 +230,6 @@ document.addEventListener('DOMContentLoaded', e => {
          
     });
 });
-
 
 
 
