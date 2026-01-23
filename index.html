@@ -23,6 +23,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">What is ESP?</a>
               </li>
@@ -44,131 +47,50 @@
         </div>
       </nav>
 
+      <!-- <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="images/newProjectImage.jpeg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="images/oldProjectImage.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div> -->
       <div class="container">
-
-        <h4 id="heading4">TR SET SIZING</h4>
-        <h5>Fill the below details</h5>
-        <form id="myForm">
-            <label for="cArea">Maximum collection area served by one T/R Set:</label><br>
-            <input type="number" id="cArea" name="cArea" value="4000"><br>
-
-            <label for="chambers">Number of Chambers</label><br>
-            <input type="number" id="chambers" name="chambers" value="6"><br>
-
-            <label for="lanes">Number of Lanes per Chamber</label><br>
-            <input type="number" id="lanes" name="lanes" value="43"> <br>
-
-            <label for="lSpacing">Lane Spacing in mm.</label><br>
-            <input type="number" id="lSpacing" name="lSpacing" value="400"> <br>
-
-            <label for="fields">Number of ESP Fields per casing</label><br>
-            <input type="number" id="fields" name="fields" value="9"> <br> 
-
-            <label for="lFields">Length of Fields in mtr.</label><br>
-            <input type="number" id="lFields" name="lFields" step="0.0001" value="4.693"> <br>
-
-            <label for="hFields">Height of Fields in mtr.</label><br>
-            <input type="number" id="hFields" name="hFields" step="0.0001" value="15.24"><br>
-
-            <label for="minCorona">Minimum installed corona power per unit effective collection area (Watt/SQM)</label><br>
-            <input type="number" id="minCorona" name="minCorona" value="17"><br>
-
-            <label for="Trsets">Number of Bus section (T/R Set)  per Field</label><br>
-            <input type="number" id="Trsets" name="Trsets" value="2"> <br>
-
-            <p>Additional Information:</p>
-            <label for="mechDocNo">ESP Sizing calculation document No.(Mechanical Document)</label><br>
-            <input type="text" id="mechDocNo" name="mechDocNo"> <br>
-
-            <label for="mechDocName">ESP Sizing calculation document Name (Mechanical Document)</label><br>
-            <input type="text" id="mechDocName" name="mechDocName"> <br>
-
-            <label for="cAreaTechSpecRef">Technical specification reference no. for max. collection area</label><br>
-            <input type="text" id="cAreaTechSpecRef" name="cAreaTechSpecRef"><br>
-            
-            <label for="cAreaClause">Clause No. for max. collection area</label><br>
-            <input type="text" id="cAreaClause" name="cAreaClause"><br>
-
-            <label for="chambersTechSpecRef">Technical specification reference no. for no. of chambers</label><br>
-            <input type="text" id="chambersTechSpecRef" name="chambersTechSpecRef"><br>
-            
-            <label for="chambersClause">Clause No. for no. of chambers</label><br>
-            <input type="text" id="chambersClause" name="chambersClause"><br>
-
-            <label for="minCoronaTechSpecRef">Technical specification reference no. for min. Corona Power</label><br>
-            <input type="text" id="minCoronaTechSpecRef" name="minCoronaTechSpecRef"><br>
-            
-            <label for="minCoronaClause">Clause No. for min. Corona Power</label><br>
-            <input type="text" id="minCoronaClause" name="minCoronaClause"><br><br>
-
-            <input type="submit" value="Submit" class="btn btn-outline-success" id="submit1">
-          </form><br>
-
-        <div id="formResults">
-            <p id="resultHeading">Results</p>
-            <p id="fillDetails">Fill the above details and click on Submit to get results</p>
-            <p>
-              <table id="myResults">
-                <tr>
-                  <th>Considering Peak Bus Voltage of 95kV and avg. voltage of 60.5kV:</th>
-                </tr>
-                <tr>
-                  <td>Total Collecting Area per Boiler(SQM):</td>
-                  <td><span id="TCArea"></span></td>
-                </tr>
-                <tr>
-                  <td>Minimum number of TR sets required per boiler:</td>
-                  <td><span id="minTRSets"></span></td>
-                </tr>
-                <tr>
-                  <td>Numbers of T/R set provided per Boiler:</td>
-                  <td><span id="numberofTRSetsperboiler"></span></td>
-                </tr>
-                <tr>
-                  <td>The collection area provided per TR set (SQM):</td>
-                  <td><span id="cAreaperTR"></span></td>
-                </tr>
-                <tr>
-                  <td>Recommanded secondary mean DC Current (mA) ></td>
-                  <td><span id="meanDCCurrent"></span></td>
-                </tr>
-              </table><br>
-                <form id="myFormforcorona">
-                <label for="meanDCCurrentvalue">Enter Secondary mean DC Current value here:</label><br>
-                <input type="number" id="meanDCCurrentvalue" name="meanDCCurrentvalue"><br><br>
-                <input type="submit" value="Calculate Corona Power" class="btn btn-outline-success" id="submit2">
-                </form>
-           </p>
-           <p id="displayCorona">
-            Corona Power: <span id="coronaPower"></span>
-           </p>
-            <div class="alert alert-success" role="alert" id="displaySuccess">
-                Collection Area provided per TR set is Acceptable
+        <br>
+          <div class="card" style="width: 18rem;">
+              <!-- <img src="..." class="card-img-top" alt="..."> -->
+              <div class="card-body">
+                <h5 class="card-title">EXISTING PROJECT</h5>
+                <p class="card-text">access an existing project by clicking below</p>
+                <a href="#" class="btn btn-primary">View</a>
               </div>
-              <div class="alert alert-danger" role="alert" id="displayDanger">
-                Collection Area provided per TR set is not Acceptable
-              </div>
-              <div class="alert alert-success" role="alert" id="displayCoronasuccess">
-                Installed Corona Power is more than the minimum requirement, Hence value of mean secondary current is acceptable <br>
-                <div id="minCoronaCurrent">
-                  <p> With <span id="coronaPowerMention"></span> Watt/m<sup>2</sup> Corona Power per effective collection Area and <span id="meanDCCurrentvalueMention"></span>mA secondary mean DC current, we
-                    are achieving <span id='avgCoronaCurrentPerSqmm'></span> mA/m2 which is more than required value 0.269 mA/m2. Hence, above calculation is
-                    justified.</p>
+            </div><br>
+
+            <div class="card" style="width: 18rem;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                  <h5 class="card-title">NEW PROJECT</h5>
+                  <p class="card-text">Create a new project from scratch by clicking below</p>
+                  <a href="newProject.html" class="btn btn-primary">Create</a>
                 </div>
               </div>
-              <div class="alert alert-danger" role="alert" id="displayCoronadanger">
-                Installed Corona Power is less than the minimum requirement, Hence value of mean secondary current is not accceptable. Please increase the value.
-              </div>
-        </div>
-
-        <form id="dataForm">
-            <input type="file" id="pdfTemplate" accept="application/pdf">
-          <button type="button" id='btn' class='btn btn-success'>Download PDF</button>
-
-          <!-- <button type="button" onclick="generatePDF()">Download PDF</button> -->
-        </form>
-
       </div>
-      <script src="index.js"></script>
+
+
+        <!-- <hr class="featurette-divider"> -->
+
+    </main>
+
+      
   </body>
 </html>
