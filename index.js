@@ -123,9 +123,9 @@ document.addEventListener('DOMContentLoaded', e => {
 
             document.getElementById('btn').addEventListener('click', async function ()
             {       
-                const existingPdfBytes = await fetch('template.pdf').then(res => res.arrayBuffer());
-                // const file = document.getElementById('pdfTemplate').files[0];
-                // const existingPdfBytes = await file.arrayBuffer();
+                // const existingPdfBytes = await fetch('template.pdf').then(res => res.arrayBuffer());
+                const file = document.getElementById('pdfTemplate').files[0];
+                const existingPdfBytes = await file.arrayBuffer();
                 
                 const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
                 const pages = pdfDoc.getPages();
